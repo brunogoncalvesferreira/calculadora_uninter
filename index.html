@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Calculadora desconto</title>
+</head>
+<body>
+  <div id="app">
+
+    <h1>Vamos calcular seu desconto</h1>
+
+    <div class="wrapper-button">
+      <button onclick="handleCodi()">Desconto pela Codi Academy</button>
+      <button onclick="handleUninter()">Vestibular Uninter</button>
+    </div>
+
+    <form class="form">
+      <strong>Você pode usar sua nota do Enem para gerar seu desconto</strong>
+      <input type="number" placeholder="Qual foi sua nota no Enem" min="0">
+      <button class="btn-enem" onclick="handleEnem()">Calcular desconto</button>
+    </form>
+
+    <div class="result">
+      <p>Aqui vai ser gerado seu desconto.</p>
+    </div>
+
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>

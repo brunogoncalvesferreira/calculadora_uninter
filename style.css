@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+#app h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  max-width: 300px;
+  margin: 2rem auto;
+  text-align: center;
+  line-height: 0.8;
+  letter-spacing: -3px;
+}
+
+#app .wrapper-button, #app .form {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#app button {
+  padding: 1rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #0891b2;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#app button:hover {
+  background-color: #0e7490;
+}
+
+#app .form strong {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+#app .form input {
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+#app .form .btn-enem:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+#app .result {
+  margin: 4rem;
+}
+  
+#app .result p {
+  font-weight: bold;
+  text-align: center;
+  color: #0e7490;
+}
