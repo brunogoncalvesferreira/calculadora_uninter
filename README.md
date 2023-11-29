@@ -9,8 +9,6 @@
 //651 a 900 R$181
 //901 em diante 100%
 
-//EJA
-
 //Diploma R$205,50
 
 //Transferência R$205,50
