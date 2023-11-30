@@ -12,7 +12,7 @@ function handleCodi() {
 
 function handleUninter() {
   result.innerHTML = `
-    <p>Seu desconto foi de R$ 229,00 para R$ 189,00</p>
+    <p>Seu desconto foi de R$ 597,00 para R$ 189,00</p>
   `
 }
 
