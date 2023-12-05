@@ -10,24 +10,28 @@
 <body>
   <div id="app">
 
-    <h1>Vamos calcular seu desconto</h1>
+      <div class="wrapper-checkbox">
+        <input type="checkbox" class="codi">
+        <label for="codi">Aluno Codi Academy</label>
+      </div>
+      <div class="wrapper-buttons">
+        <button onclick="handleUninter()">Vestibular Uninter</button>
+        <button onclick="handleDipTransf()">2ª Graduação</button>
+        <button onclick="handleDipTransf()">Transferência</button>
+      </div>
+  
+      <form class="wrapper-form">
+        <p> Você pode usar a sua nota do Enem para obter desconto. </p>
+        <div class="content-form">
+          <button type="button" class="button-generate-enem">Clique aqui</button>
+          <input class="input-form" type="text" placeholder="Digite sua nota">
+        </div>
+        <button class="button-form" onclick="handleEnem()">Calcular desconto</button>
+      </form>
 
-    <div class="wrapper-button">
-      <button onclick="handleCodi()">Desconto pela Codi Academy</button>
-      <button onclick="handleUninter()">Vestibular Uninter</button>
-      <button onclick="handleDipTransf()">2ª Graduação</button>
-      <button onclick="handleDipTransf()">Transferência</button>
-    </div>
-
-    <form class="form">
-      <strong>Você pode usar sua nota do Enem para gerar seu desconto</strong>
-      <input type="number" placeholder="Digite sua nota" min="0">
-      <button class="btn-enem" onclick="handleEnem()">Calcular desconto</button>
-    </form>
-
-    <div class="result">
-      <p>Aqui vai ser gerado seu desconto.</p>
-    </div>
+      <div class="result">
+        <p>Aqui vai ser gerado seu desconto.</p>
+      </div>
 
   </div>
   <script src="main.js"></script>
