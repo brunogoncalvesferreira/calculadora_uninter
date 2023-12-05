@@ -104,3 +104,13 @@
   transition: all 0.5s;
 }
 
+@media(max-width: 768px) {
+  .wrapper-buttons {
+    flex-direction: column;
+  }
+
+  .wrapper-buttons button {
+    width: 100%;
+  }
+}
+

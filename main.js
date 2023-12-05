@@ -26,11 +26,11 @@ function handleUninter() {
 
   if (isChecked) {
     result.innerHTML = `
-    <p>Seu desconto foi de ${formmatPriceBRL.format(priceFixSite)} para ${formmatPriceBRL.format(descontedPrice)}</p>
+    <p>Seu desconto foi de ${formmatPriceBRL.format(priceFixSite)} para ${formmatPriceBRL.format(descontedPrice)}.</p>
   `
   } else {
     result.innerHTML = `
-    <p>Seu desconto foi de ${formmatPriceBRL.format(priceFixSite)} para ${formmatPriceBRL.format(vestibularUninter)}</p>
+    <p>Seu desconto foi de ${formmatPriceBRL.format(priceFixSite)} para ${formmatPriceBRL.format(vestibularUninter)}.</p>
   `
   }
 }
@@ -42,11 +42,11 @@ function handleDipTransf() {
 
   if (isChecked) {
     result.innerHTML = `
-    <p>Seu desconto foi de ${formmatPriceBRL.format(priceFixSite)} para ${formmatPriceBRL.format(descontedPrice)}</p>
+    <p>Seu desconto foi de ${formmatPriceBRL.format(priceFixSite)} para ${formmatPriceBRL.format(descontedPrice)}.</p>
   `
   } else {
     result.innerHTML = `
-    <p>Seu desconto foi de ${formmatPriceBRL.format(priceFixSite)} para ${formmatPriceBRL.format(graduationAndTransfer)}</p>
+    <p>Seu desconto foi de ${formmatPriceBRL.format(priceFixSite)} para ${formmatPriceBRL.format(graduationAndTransfer)}.</p>
   `
   }
 }
@@ -98,7 +98,7 @@ function handleEnem() {
   else if (notaValue > 900 && notaValue <= 1000) {
     discountText = `Seu desconto foi de ${priceNote900And1000}.`;
   }
-  result.innerHTML = `<p>${discountText}</p>`;
+  result.innerHTML = `<p>${discountText}</p>.`;
 
   notaEnem.value = '';
   notaEnem.focus();
