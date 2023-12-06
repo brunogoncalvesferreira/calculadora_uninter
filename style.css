@@ -6,70 +6,159 @@
 }
 
 #app {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  max-width: 600px;
+  max-width: 40rem;
   width: 100%;
   margin: 0 auto;
   padding: 0 1.5rem;
-}
 
-#app h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  max-width: 300px;
-  margin: 2rem auto;
-  text-align: center;
-  line-height: 0.8;
-  letter-spacing: -3px;
-}
-
-#app .wrapper-button, #app .form {
-  margin-top: 3rem;
   display: flex;
   flex-direction: column;
+  justify-content: center ;
+  min-height: 100vh;
+}
+
+.wrapper-checkbox {
+  display: flex;
+  align-items: center;
   gap: 0.5rem;
+  margin-bottom:0.2rem;
+  margin-top: 0.5rem;
 }
 
-#app button {
-  padding: 1rem;
-  border: none;
-  border-radius: 6px;
-  background-color: #0891b2;
-  font-size: 1rem;
-  font-weight: 700;
-  color: #ffffff;
+.wrapper-checkbox label {
   cursor: pointer;
-  transition: 0.3s;
-}
-
-#app button:hover {
-  background-color: #0e7490;
-}
-
-#app .form strong {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #374151;
-}
-
-#app .form input {
-  padding: 1rem;
-  border-radius: 6px;
-}
-
-#app .form .btn-enem:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
-}
-
-#app .result {
-  margin: 4rem;
-}
-  
-#app .result p {
+  font-size: 1.125rem;
   font-weight: bold;
-  text-align: center;
-  color: #0e7490;
+  color: #111827;
+}
+
+.wrapper-checkbox input {
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+}
+
+.wrapper-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.wrapper-buttons button {
+  background-color: #111827;
+  width: 12rem;
+  height: 3.5rem;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.wrapper-form {
+  display: none;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.wrapper-form p {
+  font-size: 0.8rem;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.wrapper-form .input-form {
+  border: 1px solid #111827;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.wrapper-form .button-generate-enem {
+  background-color: #111827;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.wrapper-form .button-form {
+  background-color: #111827;
+  border: none;
+  border-radius: 4px;
+  padding: 1rem 1rem;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.wrapper-form .button-form.isActive{
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.5s;
+}
+
+.result p{
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.wrapper-form .input-form.isActive {
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.5s;
+}
+
+@media(max-width: 768px) {
+  .wrapper-buttons {
+    flex-direction: column;
+  }
+
+  .wrapper-buttons button {
+    width: 100%;
+  }
+}
+
+h3{
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+h1{
+  font-size: 2rem;
+  font-weight: bold;
+  color: #111827;
+  margin-bottom: 1.5rem;
+}
+
+.wrapper-buttons button,
+.wrapper-form .button-form,
+.button-generate-enem {
+  background-color: #111827;
+  width: 12rem;
+  height: 3.5rem;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.wrapper-buttons button:hover,
+.wrapper-form .button-form:hover,
+.button-generate-enem:hover {
+  background-color: #1f2937;
 }
