@@ -21,16 +21,21 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin-bottom: 2rem;
+  margin-bottom:0.2rem;
+  margin-top: 0.5rem;
 }
 
 .wrapper-checkbox label {
   cursor: pointer;
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: #111827;
 }
 
 .wrapper-checkbox input {
   width: 1rem;
   height: 1rem;
+  cursor: pointer;
 }
 
 .wrapper-buttons {
@@ -44,6 +49,7 @@
 .wrapper-buttons button {
   background-color: #111827;
   width: 12rem;
+  height: 3.5rem;
   border: none;
   border-radius: 4px;
   padding: 0.5rem 1rem;
@@ -51,8 +57,12 @@
   cursor: pointer;
 }
 
+.wrapper-buttons button:focus{
+  background-color: red;
+}
+
 .wrapper-form {
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: 0.5rem;
   margin-bottom: 2rem;
@@ -81,7 +91,7 @@
   cursor: pointer;
 }
 
-.button-form {
+.wrapper-form .button-form {
   background-color: #111827;
   border: none;
   border-radius: 4px;
@@ -89,8 +99,17 @@
   color: #fff;
   cursor: pointer;
   font-weight: bold;
-  margin: 2rem 0;
+  margin-top: 0.5rem;
+  opacity: 0;
+  visibility: hidden;
 }
+
+.wrapper-form .button-form.isActive{
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.5s;
+}
+
 .result p{
   font-size: 1.125rem;
   font-weight: bold;
@@ -105,6 +124,9 @@
 }
 
 @media(max-width: 768px) {
+  html {
+    font-size: 85.7%;
+  }
   .wrapper-buttons {
     flex-direction: column;
   }
@@ -114,3 +136,36 @@
   }
 }
 
+h3{
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+h1{
+  font-size: 2rem;
+  font-weight: bold;
+  color: #111827;
+  margin-bottom: 1.5rem;
+}
+
+.wrapper-buttons button,
+.wrapper-form .button-form,
+.button-generate-enem {
+  background-color: #111827;
+  width: 12rem;
+  height: 3.5rem;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.wrapper-buttons button:hover,
+.wrapper-form .button-form:hover,
+.button-generate-enem:hover {
+  background-color: #1f2937;
+}

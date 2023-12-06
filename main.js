@@ -3,6 +3,7 @@ const checkbox = document.querySelector('.codi')
 const result = document.querySelector('.result')
 const notaEnem = document.querySelector('.input-form')
 const buttonActiveEnem = document.querySelector('.button-generate-enem')
+const buttonCalcularDesconto = document.querySelector('.button-form')
 
 const priceFixSite = 597
 const vestibularUninter = 189
@@ -26,11 +27,11 @@ function handleUninter() {
 
   if (isChecked) {
     result.innerHTML = `
-    <p>Seu desconto foi de ${formmatPriceBRL.format(priceFixSite)} para ${formmatPriceBRL.format(descontedPrice)}.</p>
+    <h1>Sua mensalidade foi de ${formmatPriceBRL.format(priceFixSite)} para ${formmatPriceBRL.format(descontedPrice)}.</h1>
   `
   } else {
     result.innerHTML = `
-    <p>Seu desconto foi de ${formmatPriceBRL.format(priceFixSite)} para ${formmatPriceBRL.format(vestibularUninter)}.</p>
+    <h1>Sua mensalidade foi de ${formmatPriceBRL.format(priceFixSite)} para ${formmatPriceBRL.format(vestibularUninter)}.</h1>
   `
   }
 }
@@ -42,18 +43,24 @@ function handleDipTransf() {
 
   if (isChecked) {
     result.innerHTML = `
-    <p>Seu desconto foi de ${formmatPriceBRL.format(priceFixSite)} para ${formmatPriceBRL.format(descontedPrice)}.</p>
+    <h1>Sua mensalidade foi de ${formmatPriceBRL.format(priceFixSite)} para ${formmatPriceBRL.format(descontedPrice)}.</h1>
   `
   } else {
     result.innerHTML = `
-    <p>Seu desconto foi de ${formmatPriceBRL.format(priceFixSite)} para ${formmatPriceBRL.format(graduationAndTransfer)}.</p>
+    <h1>Sua mensalidade foi de ${formmatPriceBRL.format(priceFixSite)} para ${formmatPriceBRL.format(graduationAndTransfer)}.</h1>
   `
   }
 }
 
 buttonActiveEnem.addEventListener('click', () => {
-  notaEnem.classList.toggle('isActive')
+  toggleInputAndButton();
 })
+
+function toggleInputAndButton(){
+  notaEnem.classList.toggle('isActive');
+  buttonCalcularDesconto.classList.toggle('isActive');
+  document.querySelector('.wrapper-form').style.display = notaEnem.classList.contains('isActive') ? 'flex' : 'none';
+}
 
 function handleEnem() {
   let notaValue = Number(notaEnem.value);
@@ -72,11 +79,11 @@ function handleEnem() {
 
     if(isChecked) {
       discountText = `
-        Seu desconto foi de ${formmatPriceBRL.format(priceFixSite)} 
+      Sua mensalidade foi de ${formmatPriceBRL.format(priceFixSite)} 
         para ${formmatPriceBRL.format(descontedPrice)}.`;
     } else {
       discountText = `
-        Seu desconto foi de ${formmatPriceBRL.format(priceFixSite)} 
+      Sua mensalidade foi de ${formmatPriceBRL.format(priceFixSite)} 
         para ${formmatPriceBRL.format(priceFixEnem)}.`;
     }
 
@@ -98,7 +105,7 @@ function handleEnem() {
   else if (notaValue > 900 && notaValue <= 1000) {
     discountText = `Seu desconto foi de ${priceNote900And1000}.`;
   }
-  result.innerHTML = `<p>${discountText}</p>.`;
+  result.innerHTML = `<h1>${discountText}</h1>.`;
 
   notaEnem.value = '';
   notaEnem.focus();
