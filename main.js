@@ -4,7 +4,19 @@ const result = document.querySelector('.result')
 const notaEnem = document.querySelector('.input-form')
 const buttonActiveEnem = document.querySelector('.button-generate-enem')
 const buttonCalcularDesconto = document.querySelector('.button-form')
+const toggleSwitch = document.getElementById('toggleSwitch');
 
+const online = 50
+const presencial = 123
+let value 
+
+toggleSwitch.addEventListener('change', handleChangeToggle)
+
+function handleChangeToggle() {
+  value = toggleSwitch.checked ? online : presencial
+  return value
+}
+  
 const priceFixSite = 597
 const vestibularUninter = 189
 const graduationAndTransfer = 205
@@ -19,26 +31,25 @@ form.addEventListener('submit', (e) => {
   e.preventDefault()
 })
 
-
 function handleUninter() {
   const discount = vestibularUninter * discountCodi
-  const descontedPrice = vestibularUninter - discount
+  const descontedPrice = (vestibularUninter - discount ) + handleChangeToggle()
+ 
   const isChecked = checkbox.checked
-
   if (isChecked) {
     result.innerHTML = `
     <h1>Sua mensalidade foi de ${formmatPriceBRL.format(priceFixSite)} para ${formmatPriceBRL.format(descontedPrice)}.</h1>
   `
   } else {
     result.innerHTML = `
-    <h1>Sua mensalidade foi de ${formmatPriceBRL.format(priceFixSite)} para ${formmatPriceBRL.format(vestibularUninter)}.</h1>
+    <h1>Sua mensalidade foi de ${formmatPriceBRL.format(priceFixSite)} para ${formmatPriceBRL.format(vestibularUninter + handleChangeToggle())}.</h1>
   `
   }
 }
 
 function handleDipTransf() {
   const discount = graduationAndTransfer * discountCodi
-  const descontedPrice = graduationAndTransfer - discount
+  const descontedPrice = (graduationAndTransfer - discount) + handleChangeToggle()
   const isChecked = checkbox.checked
 
   if (isChecked) {
@@ -47,7 +58,7 @@ function handleDipTransf() {
   `
   } else {
     result.innerHTML = `
-    <h1>Sua mensalidade foi de ${formmatPriceBRL.format(priceFixSite)} para ${formmatPriceBRL.format(graduationAndTransfer)}.</h1>
+    <h1>Sua mensalidade foi de ${formmatPriceBRL.format(priceFixSite)} para ${formmatPriceBRL.format(graduationAndTransfer + handleChangeToggle())}.</h1>
   `
   }
 }
@@ -75,7 +86,7 @@ function handleEnem() {
   function handleCalculeDiscountEnem(priceFixEnem) {
     const isChecked = checkbox.checked
     const discount = priceFixEnem * discountCodi
-    const descontedPrice = priceFixEnem - discount
+    const descontedPrice = (priceFixEnem - discount) + handleChangeToggle()
 
     if(isChecked) {
       discountText = `
@@ -84,7 +95,7 @@ function handleEnem() {
     } else {
       discountText = `
       Sua mensalidade foi de ${formmatPriceBRL.format(priceFixSite)} 
-        para ${formmatPriceBRL.format(priceFixEnem)}.`;
+        para ${formmatPriceBRL.format(priceFixEnem + handleChangeToggle())}.`;
     }
 
     return descontedPrice
