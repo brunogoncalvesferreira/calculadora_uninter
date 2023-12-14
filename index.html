@@ -10,6 +10,21 @@
 <body>
   <div id="app">
       <h1>Selecione seu método de ingresso</h1>
+
+      <div class="toggle">
+        <label class="toggle-label">Presencial</label>
+         <label class="switch">
+             <input type="checkbox" id="toggleSwitch">
+             <span class="slider"></span>
+         </label>
+        <label class="toggle-label">Online</label>
+       </div>
+ 
+       <div class="wrapper-checkbox">
+         <input type="checkbox" class="codi" id="codi" checked>
+         <label for="codi">Sou aluno da Codi Academy</label>
+       </div>
+
       <div class="wrapper-buttons">
         <button onclick="handleUninter()">Vestibular Uninter</button>
         <button onclick="handleDipTransf()">2ª Graduação</button>
@@ -21,20 +36,6 @@
           <input class="input-form" type="text" placeholder="Digite sua nota do ENEM">
           <button class="button-form" onclick="handleEnem()">Calcular desconto</button>
       </form>
-
-      <div class="toggle">
-       <label class="toggle-label">Presencial</label>
-        <label class="switch">
-            <input type="checkbox" id="toggleSwitch">
-            <span class="slider"></span>
-        </label>
-       <label class="toggle-label">Online</label>
-      </div>
-
-      <div class="wrapper-checkbox">
-        <input type="checkbox" class="codi" id="codi">
-        <label for="codi">Sou aluno da Codi Academy</label>
-      </div>
 
       <div class="result">
         <h1>Aqui vai ser gerado seu desconto.</h1>

@@ -45,6 +45,7 @@ function handleUninter() {
     <h1>Sua mensalidade foi de ${formmatPriceBRL.format(priceFixSite)} para ${formmatPriceBRL.format(vestibularUninter + handleChangeToggle())}.</h1>
   `
   }
+  document.querySelector('.wrapper-form').style.display = notaEnem.classList.contains('isActive') ? 'none': ''
 }
 
 function handleDipTransf() {
@@ -61,6 +62,8 @@ function handleDipTransf() {
     <h1>Sua mensalidade foi de ${formmatPriceBRL.format(priceFixSite)} para ${formmatPriceBRL.format(graduationAndTransfer + handleChangeToggle())}.</h1>
   `
   }
+
+  document.querySelector('.wrapper-form').style.display = notaEnem.classList.contains('isActive') ? 'none': ''
 }
 
 buttonActiveEnem.addEventListener('click', () => {
@@ -115,6 +118,8 @@ function handleEnem() {
   } 
   else if (notaValue > 900 && notaValue <= 1000) {
     discountText = `Seu desconto foi de ${priceNote900And1000}.`;
+  } else {
+    discountText = `Desculpa você informou uma nota inválida!`;
   }
   result.innerHTML = `<h1>${discountText}</h1>.`;
 

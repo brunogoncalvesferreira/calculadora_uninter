@@ -9,7 +9,7 @@
   --background: #111827;
   --text: #111827;
   --white: #fff;
-  --focus-button: #0284c7;
+  --focus-button: #2f99ce;
 }
 
 #app {
@@ -28,8 +28,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin-bottom:0.2rem;
-  margin-top: 0.5rem;
+  margin: 2rem 0;
 }
 
 .wrapper-checkbox label {
@@ -64,8 +63,8 @@
   cursor: pointer;
 }
 
-.wrapper-buttons button:focus{
-  background-color: var(--focus-button);
+.wrapper-buttons button:focus-within{
+  border: 2px solid var(--focus-button);
 }
 
 .wrapper-form {
@@ -114,7 +113,6 @@
 .wrapper-form .button-form.isActive{
   opacity: 1;
   visibility: visible;
-  transition: all 0.5s;
 }
 
 .result p{
@@ -127,7 +125,6 @@
 .wrapper-form .input-form.isActive {
   opacity: 1;
   visibility: visible;
-  transition: all 0.5s;
 }
 
 h3{
@@ -173,7 +170,8 @@ h1{
 }
 
 .toggle-label {
-  margin: 0 .625rem;
+  margin: 1rem .25rem 0 .25rem;
+  line-height: 0.5rem;
 }
 
 .switch {
@@ -207,8 +205,8 @@ h1{
   content: "";
   height: 1.625rem;
   width: 1.625rem;
+  top: 0.25rem;
   left: .25rem;
-  bottom: .25rem;
   background-color: white;
   -webkit-transition: .4s;
   transition: .4s;
