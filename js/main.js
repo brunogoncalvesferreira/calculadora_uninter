@@ -1,9 +1,7 @@
-const form = document.querySelector("form")
 const checkbox = document.querySelector(".codi")
 const result = document.querySelector(".result")
-const notaEnem = document.querySelector(".input-form")
+const notaEnem = document.querySelector(".input-enem")
 const buttonActiveEnem = document.querySelector(".button-generate-enem")
-const buttonCalcularDesconto = document.querySelector(".button-form")
 const toggleSwitch = document.getElementById("toggleSwitch")
 const buttonActiveVestibular = document.querySelector(
   ".button-generate-vestibular"
@@ -13,13 +11,6 @@ const notaVestibular = document.querySelector(".input-vestibular")
 const online = 50
 const presencial = 123
 let value
-
-toggleSwitch.addEventListener("change", handleChangeToggle)
-
-function handleChangeToggle() {
-  value = toggleSwitch.checked ? online : presencial
-  return value
-}
 
 const priceFixSite = 597
 const vestibularUninter = 189
@@ -31,9 +22,49 @@ const formmatPriceBRL = new Intl.NumberFormat("pt-BR", {
   currency: "BRL",
 })
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault()
+document
+  .querySelector(".wrapper-vestibular")
+  .addEventListener("submit", (event) => {
+    event.preventDefault()
+  })
+
+document.querySelector(".wrapper-form").addEventListener("submit", (event) => {
+  event.preventDefault()
 })
+
+buttonActiveVestibular.addEventListener("click", () => {
+  document.querySelector(".wrapper-vestibular").classList.toggle("active")
+  document.querySelector(".wrapper-form").classList.remove("isActive")
+})
+
+buttonActiveEnem.addEventListener("click", () => {
+  document.querySelector(".wrapper-form").classList.toggle("isActive")
+  document.querySelector(".wrapper-vestibular").classList.remove("active")
+})
+
+toggleSwitch.addEventListener("change", handleChangeToggle)
+
+toggleSwitch.addEventListener("change", () => {
+  handleChangeToggle()
+  calculateDiscountButtonToggle()
+})
+
+function handleChangeToggle() {
+  value = toggleSwitch.checked ? online : presencial
+  return value
+}
+
+function calculateDiscountButtonToggle() {
+  if (document.querySelector(".wrapper-form").classList.contains("isActive")) {
+    handleEnem()
+  } else if (
+    document.querySelector(".wrapper-vestibular").classList.contains("active")
+  ) {
+    handleUninter()
+  } else {
+    handleDipTransf()
+  }
+}
 
 function handleUninter() {
   const notaValue = Number(notaVestibular.value)
@@ -58,6 +89,7 @@ function handleUninter() {
       )}.</h1>
   `
     }
+    notaVestibular.focus()
   }
 
   if (notaValue >= 30) {
@@ -68,10 +100,6 @@ function handleUninter() {
     )}</h1>`
   }
 }
-
-buttonActiveVestibular.addEventListener("click", () => {
-  document.querySelector(".wrapper-vestibular").classList.toggle("active")
-})
 
 function handleDipTransf() {
   const discount = graduationAndTransfer * discountCodi
@@ -94,21 +122,8 @@ function handleDipTransf() {
   `
   }
 
-  document.querySelector(".wrapper-form").style.display =
-    notaEnem.classList.contains("isActive") ? "none" : ""
-
   document.querySelector(".wrapper-vestibular").classList.remove("active")
-}
-
-buttonActiveEnem.addEventListener("click", () => {
-  toggleInputAndButton()
-})
-
-function toggleInputAndButton() {
-  notaEnem.classList.toggle("isActive")
-  buttonCalcularDesconto.classList.toggle("isActive")
-  document.querySelector(".wrapper-form").style.display =
-    notaEnem.classList.contains("isActive") ? "flex" : "none"
+  document.querySelector(".wrapper-form").classList.remove("isActive")
 }
 
 function handleEnem() {
@@ -154,6 +169,5 @@ function handleEnem() {
   }
   result.innerHTML = `<h1>${discountText}</h1>.`
 
-  notaEnem.value = ""
   notaEnem.focus()
 }

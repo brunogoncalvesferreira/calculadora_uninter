@@ -13,7 +13,7 @@
 }
 
 #app {
-  max-width: 40rem;
+  max-width: 48rem;
   width: 100%;
   margin: 0 auto;
   padding: 0 1.5rem;
@@ -69,9 +69,6 @@
 
 .wrapper-form {
   display: none;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
 }
 
 .wrapper-form p {
@@ -80,13 +77,11 @@
   margin-bottom: 0.5rem;
 }
 
-.wrapper-form .input-form {
-  width: fit-content;
+.wrapper-form .input-enem {
+  width: 100%;
   border: 1px solid var(--background);
   border-radius: 4px;
   padding: 0.5rem 1rem;
-  opacity: 0;
-  visibility: hidden;
 }
 
 .wrapper-form .button-generate-enem {
@@ -98,7 +93,9 @@
   cursor: pointer;
 }
 
-.wrapper-form .button-form {
+.wrapper-form button {
+  display: block;
+  width: 100%;
   background-color: var(--background);
   border: none;
   border-radius: 4px;
@@ -107,14 +104,11 @@
   cursor: pointer;
   font-weight: bold;
   margin-top: 0.5rem;
-  opacity: 0;
-  visibility: hidden;
 }
 
-.wrapper-form .button-form.isActive {
-  opacity: 1;
-  visibility: visible;
-  width: 100%;
+.wrapper-form.isActive {
+  display: flex;
+  flex-direction: column;
 }
 
 .wrapper-vestibular {
@@ -150,14 +144,6 @@
   margin-bottom: 0.5rem;
 }
 
-.wrapper-form .input-form.isActive {
-  opacity: 1;
-  visibility: visible;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
 h3 {
   font-size: 1.125rem;
   font-weight: bold;
@@ -175,7 +161,6 @@ h1 {
 }
 
 .wrapper-buttons button,
-.wrapper-form .button-form,
 .button-generate-enem {
   background-color: var(--background);
   width: 12rem;
