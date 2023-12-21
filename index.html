@@ -26,11 +26,25 @@
       </div>
 
       <div class="wrapper-buttons">
-        <button onclick="handleUninter()">Vestibular Uninter</button>
+        <button type="button" class="button-generate-vestibular">
+          Vestibular Uninter
+        </button>
         <button onclick="handleDipTransf()">2ª Graduação</button>
         <button onclick="handleDipTransf()">Transferência</button>
         <button type="button" class="button-generate-enem">ENEM</button>
       </div>
+
+     
+        <form class="wrapper-vestibular"">
+          <input
+            type="text"
+            class="input-vestibular"
+            placeholder="Nota do vestibular"
+          />
+          <button  onclick="handleUninter()">Calcular desconto</button>
+        </form>
+        
+      
 
       <form class="wrapper-form">
         <input

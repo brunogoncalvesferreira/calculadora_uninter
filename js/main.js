@@ -5,6 +5,10 @@ const notaEnem = document.querySelector(".input-form")
 const buttonActiveEnem = document.querySelector(".button-generate-enem")
 const buttonCalcularDesconto = document.querySelector(".button-form")
 const toggleSwitch = document.getElementById("toggleSwitch")
+const buttonActiveVestibular = document.querySelector(
+  ".button-generate-vestibular"
+)
+const notaVestibular = document.querySelector(".input-vestibular")
 
 const online = 50
 const presencial = 123
@@ -32,28 +36,42 @@ form.addEventListener("submit", (e) => {
 })
 
 function handleUninter() {
-  const discount = vestibularUninter * discountCodi
-  const descontedPrice = vestibularUninter - discount + handleChangeToggle()
+  const notaValue = Number(notaVestibular.value)
 
-  const isChecked = checkbox.checked
-  if (isChecked) {
-    result.innerHTML = `
+  function handleCalculeDiscountVestibular(priceFixVestibular) {
+    const isChecked = checkbox.checked
+    const discount = priceFixVestibular * discountCodi
+    const descontedPrice = priceFixVestibular - discount + handleChangeToggle()
+
+    if (isChecked) {
+      result.innerHTML = `
     <h1>Sua mensalidade foi de ${formmatPriceBRL.format(
       priceFixSite
     )} para ${formmatPriceBRL.format(descontedPrice)}.</h1>
   `
-  } else {
-    result.innerHTML = `
+    } else {
+      result.innerHTML = `
     <h1>Sua mensalidade foi de ${formmatPriceBRL.format(
       priceFixSite
     )} para ${formmatPriceBRL.format(
-      vestibularUninter + handleChangeToggle()
-    )}.</h1>
+        vestibularUninter + handleChangeToggle()
+      )}.</h1>
   `
+    }
   }
-  document.querySelector(".wrapper-form").style.display =
-    notaEnem.classList.contains("isActive") ? "none" : ""
+
+  if (notaValue >= 30) {
+    handleCalculeDiscountVestibular(vestibularUninter)
+  } else {
+    result.innerHTML = `<h1>Sua mensalidade é ${formmatPriceBRL.format(
+      priceFixSite
+    )}</h1>`
+  }
 }
+
+buttonActiveVestibular.addEventListener("click", () => {
+  document.querySelector(".wrapper-vestibular").classList.toggle("active")
+})
 
 function handleDipTransf() {
   const discount = graduationAndTransfer * discountCodi
@@ -78,6 +96,8 @@ function handleDipTransf() {
 
   document.querySelector(".wrapper-form").style.display =
     notaEnem.classList.contains("isActive") ? "none" : ""
+
+  document.querySelector(".wrapper-vestibular").classList.remove("active")
 }
 
 buttonActiveEnem.addEventListener("click", () => {
