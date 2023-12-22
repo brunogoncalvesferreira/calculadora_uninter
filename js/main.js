@@ -7,6 +7,8 @@ const buttonActiveVestibular = document.querySelector(
   ".button-generate-vestibular"
 )
 const notaVestibular = document.querySelector(".input-vestibular")
+const btnGraduAndTransf1 = document.querySelector(".btn-gradu-transf1")
+const btnGraduAndTransf2 = document.querySelector(".btn-gradu-transf2")
 
 const online = 50
 const presencial = 123
@@ -37,6 +39,14 @@ buttonActiveVestibular.addEventListener("click", () => {
   document.querySelector(".wrapper-form").classList.remove("isActive")
 })
 
+btnGraduAndTransf1.addEventListener("click", () => {
+  btnGraduAndTransf1.classList.add("isBtn")
+})
+
+btnGraduAndTransf2.addEventListener("click", () => {
+  btnGraduAndTransf2.classList.add("isBtn")
+})
+
 buttonActiveEnem.addEventListener("click", () => {
   document.querySelector(".wrapper-form").classList.toggle("isActive")
   document.querySelector(".wrapper-vestibular").classList.remove("active")
@@ -61,7 +71,10 @@ function calculateDiscountButtonToggle() {
     document.querySelector(".wrapper-vestibular").classList.contains("active")
   ) {
     handleUninter()
-  } else {
+  } else if (
+    btnGraduAndTransf1.classList.contains("isBtn") ||
+    btnGraduAndTransf2.classList.contains("isBtn")
+  ) {
     handleDipTransf()
   }
 }
